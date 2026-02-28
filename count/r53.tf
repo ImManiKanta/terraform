@@ -1,6 +1,7 @@
 /* resource "aws_route53_record" "www" {
   count = 3
   zone_id = var.zone_id
+  #To separate variables we can use $ that is called interpolationn
   name    = "${var.instances[count.index]}.${var.domainname}" #mongodb.manidevops.online
   type    = "A"
   ttl     = 1
@@ -11,6 +12,7 @@
 resource "aws_route53_record" "www" {
   count = 3
   zone_id = var.zone_id
+  #To separate variables we can use $ that is called interpolation
   name    = var.instances[count.index] != "frontend" ? "${var.instances[count.index]}.${var.domainname}" : "${var.domainname}" #mongodb.manidevops.online
   type    = "A"
   ttl     = 1
